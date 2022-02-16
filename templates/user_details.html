@@ -1,0 +1,70 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>User Details</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 25vh;
+            border: 1px solid black;
+            padding-top: 43px;
+            padding-bottom: 51px;
+            min-width: 41vw;
+            border-radius: 21px;
+        }
+
+        .btn-sm {
+            float: right;
+        }
+
+        .btn-secondary {
+            margin: 0 23px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="{% static '/img/user.jpg' %}" alt="user" srcset="">
+        <div class="d-flex position-relative">
+            <div>
+                <h5 class="mt-0">{{ user.user.username }}
+                    <a href="{% url 'edit' user.id %}">
+                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    </a>
+                    <a href="{% url 'delete' user.id %}">
+                        <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                    </a>
+                </h5>
+                <hr>
+                <h6 class="mt-0">{{ user.user.email }}
+                </h6>
+                <hr>
+                <p>{{ user.address }}
+                </p>
+                <hr>
+                <a href="/logout">
+                    <button type="button" class="btn btn-danger">Logout</button>
+                </a>
+                <h3>Session will expire in 5 minutes</h3>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>
